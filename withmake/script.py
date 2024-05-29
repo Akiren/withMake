@@ -13,6 +13,12 @@ class WithMake:
         response = requests.get(url, headers=headers)
         return response.json()
 
+    def listScenarios(self):
+        url = self.base_url + f"scenarios"
+        headers = {"Authorization": f"Token {self.token}"}
+        response = requests.get(url, headers=headers)
+        return response.json()
+
     def getBlueprint(self, scenario_id, blueprintId=None, draft=False):
         url = self.base_url + f"scenarios/{scenario_id}/blueprint"
         headers = {"Authorization": f"Token {self.token}"}
